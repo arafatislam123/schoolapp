@@ -36,7 +36,8 @@ class DashboardController extends Controller
 
     public function teacherDashboard()
     {
-        return view('dashboards.teacher');
+        // Redirect to the new TeacherDashboardController
+        return redirect()->route('teacher.dashboard');
     }
 
     public function studentDashboard()

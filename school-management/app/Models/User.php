@@ -114,4 +114,28 @@ class User extends Authenticatable
     {
         return $this->hasRole('parent');
     }
+
+    /**
+     * Get the student profile for this user.
+     */
+    public function student()
+    {
+        return $this->hasOne(Student::class);
+    }
+
+    /**
+     * Get the teacher profile for this user.
+     */
+    public function teacher()
+    {
+        return $this->hasOne(Teacher::class);
+    }
+
+    /**
+     * Get children if user is a parent.
+     */
+    public function children()
+    {
+        return $this->hasMany(Student::class, 'parent_id');
+    }
 }
